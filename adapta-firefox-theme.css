@@ -18,7 +18,8 @@
 :root[devtoolstheme="dark"] {
   /* Chrome */
   --chrome-background-color: #2a373e;
-  --chrome-color: #2a373e;
+  /*--chrome-color: #2a373e;*/
+  --chrome-color: #a3d5f0;
   --chrome-secondary-background-color: #F5f5f5;
   --chrome-navigator-toolbox-separator-color: rgba(0,0,0,.2);
   --chrome-nav-bar-separator-color: rgba(0,0,0,.2);
@@ -233,7 +234,7 @@ toolbar[brighttext] #downloads-indicator-counter {
 
 .searchbar-search-button {
   margin: 0;
-  padding: 6px;
+  padding: 2px;
 }
 
 .ac-url-text,
@@ -287,7 +288,7 @@ window:not([chromehidden~="toolbar"]) #urlbar-wrapper {
   padding-bottom: 0;
 }
 
-/* Use smaller back button icon */
+/* Use smaller back button icon 
 #back-button {
   -moz-image-region: rect(0, 54px, 18px, 36px);
 }
@@ -296,7 +297,7 @@ window:not([chromehidden~="toolbar"]) #urlbar-wrapper {
   #back-button {
     -moz-image-region: rect(0, 108px, 36px, 72px);
   }
-}
+}*/
 
 .tab-background {
   visibility: hidden;
@@ -378,11 +379,13 @@ window:not([chromehidden~="toolbar"]) #urlbar-wrapper {
 /* Don't need space for the tab curves (66px - 30px) */
 .tabs-newtab-button {
   width: 36px;
+  color:white !important;
 }
 
 .tabs-newtab-button:hover {
   /* Important needed because !important is used in browser.css */
   background-color: var(--toolbarbutton-hover-background) !important;
+  color:white !important;
   background-image: none;
 }
 
@@ -1255,3 +1258,89 @@ menuitem.subviewbutton:not(:-moz-any([disabled],:active))[_moz-menuactive],
   color: var(--chrome-color);
   background-color: rgba(0, 0, 0, 0.12);
 }
+
+
+/* Custom autocomplete menu */
+
+@-moz-document url-prefix(chrome://browser/content/browser.xul)
+{
+  #PopupAutoCompleteRichResult .autocomplete-richlistitem .ac-url-text,
+  #PopupAutoCompleteRichResult .autocomplete-richlistitem .ac-separator-text,
+  #PopupAutoCompleteRichResult .autocomplete-richlistitem .ac-action-text,
+  #downloadsHistory {
+    color: #2998ff !important;
+  }
+} 
+
+/* White text tabs */
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+.tabbrowser-tab .tab-label { color: #C3D3DA !important; }
+
+/*WHITE ICONS*/
+  #tabview-button .toolbarbutton-icon,
+  #save-page-button .toolbarbutton-icon,
+  #developer-button .toolbarbutton-icon,
+  #preferences-button .toolbarbutton-icon,
+  #webrtc-status-button .toolbarbutton-icon,
+  #urlbar-go-button:not(:hover),
+  #urlbar .autocomplete-history-dropmarker:not(:hover),
+  #searchbar .searchbar-search-button:not([addengines]),
+  #searchbar .search-go-button,
+  #context-bookmarkpage,  
+  #PanelUI-menu-button .toolbarbutton-icon, 
+  #nav-bar-overflow-button .toolbarbutton-icon,
+  #classic_bm_button23-toolbar-button > .toolbarbutton-icon,
+  #bookmarks-menu-button:not([starred]) .toolbarbutton-icon,
+  #bookmarks-button .toolbarbutton-icon,
+  #bookmarks-menu-button > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon,
+  #panic-button .toolbarbutton-icon,
+  #privatebrowsing-button .toolbarbutton-icon,
+  #print-button .toolbarbutton-icon,
+  #sync-button .toolbarbutton-icon,
+  #social-share-button .toolbarbutton-icon,
+  #password-notification-icon,
+  #home-button .toolbarbutton-icon,
+  #open-file-button .toolbarbutton-icon,
+  #email-link-button .toolbarbutton-icon,
+  #loop-button .toolbarbutton-icon,
+  #feed-button .toolbarbutton-icon,
+  #tabview-button .toolbarbutton-icon,
+  #context-reload,
+  #history-button .toolbarbutton-icon,
+  #history-panelmenu .toolbarbutton-icon,
+  #fullscreen-button .toolbarbutton-icon,
+  #urlbar-reload-button:hover,
+  #paste-button .toolbarbutton-icon,
+  #reload-button .toolbarbutton-icon,
+  #pocket-button .toolbarbutton-icon,
+  #context-back,
+  #context-forward,
+  #back-button .toolbarbutton-icon, 
+  #forward-button .toolbarbutton-icon,
+  #new-window-button .toolbarbutton-icon,
+  #new-tab-button .toolbarbutton-icon,
+  #go-button:hover,
+  #downloads-button:not([attention]),
+  #zoom-in-button .toolbarbutton-icon,
+  #copy-button .toolbarbutton-icon,
+  #add-ons-button .toolbarbutton-icon,
+  #find-button .toolbarbutton-icon,
+  #sidebar-button .toolbarbutton-icon,
+  #context-stop,
+  .tabs-closebutton:hover .toolbarbutton-icon,
+  .tab-close-button:hover .toolbarbutton-icon,
+  #downloads-button[paused] .toolbarbutton-icon,
+  #urlbar-stop-button:hover,
+  #cut-button .toolbarbutton-icon,
+  #zoom-out-button .toolbarbutton-icon,
+  #stop-button .toolbarbutton-icon,
+  #characterencoding-button .toolbarbutton-icon  
+  {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'invert\'>\
+    <feColorMatrix in='SourceGraphic' type='matrix' values=\
+    '0.38 0.3 0.3 0.0 0.8 \
+    0.3 0.38 0.3 0.0 1.0 \
+    0.3 0.3 0.38 0.0 1.0 \
+    0.0 0.0 0.0 1.0 0.0'/></filter></svg>#invert") !important;
+  }
